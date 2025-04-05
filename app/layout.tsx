@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { useTheme } from 'next-themes'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='dark'>
-      <body className={inter.className}>
+      <body className={`theme-transition ${inter.className}`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
@@ -25,7 +26,7 @@ export default function RootLayout({
           //add the name of the theme below
           //go to the theme switcher to define the color name so it shows in the dropdown
           //go to global.css to add the css color variables which can be copied from shadcn color themes
-          themes={['orange','light','dark','red','rose']}
+          themes={['orange', 'light', 'dark', 'red', 'rose']}
           disableTransitionOnChange
         >
           {children}

@@ -29,15 +29,15 @@ export const ThemeSwitcher = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='outline' className='rounded-full' size='icon'>
-          <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-          <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
+        <Button variant='ghost' className='rounded-full h-8 w-8'  size='icon'>
+          <Sun className='h-[.8rem] w-[.8rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
+          <Moon className='absolute h-[.8rem] w-[.8rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
           <span className='sr-only'>Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
+      <DropdownMenuContent align='end' className='mt-2'>
         {themes.map(theme => (
-          <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
+          <DropdownMenuItem className='hover:cursor-pointer' key={theme} onClick={() => setTheme(theme)}>
             <div
               className={`flex h-4 w-4 items-center justify-center rounded-full ${currentTheme === 'light' ? 'border-black bg-white' : 'border-white'} border-spacing-1 border-2`}
             >
